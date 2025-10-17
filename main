@@ -1,0 +1,38 @@
+# main_regression_embedded.py
+
+```python
+"""
+main_regression_embedded.py
+
+Regression training pipeline (Ridge) for California Housing (sklearn).
+Exports both a Python-friendly pipeline and an embedded-friendly JSON containing:
+- scaler mean and scale (StandardScaler)
+- model coefficients and intercept
+
+Style:
+- camelCase for variables and functions
+- docstrings for each function
+- main() entrypoint
+- comments explaining each step
+"""
+from __future__ import annotations
+import json
+import os
+from typing import Tuple, Dict, Any, List
+
+import numpy as np
+import pandas as pd
+from sklearn.datasets import fetch_california_housing
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import mean_squared_error, r2_score
+import joblib
+
+# Config
+RANDOM_STATE = 42
+TEST_SIZE = 0.2
+OUTPUT_PIPELINE = "reg_pipeline.joblib"
+OUTPUT_EMBEDDED_JSON = "embedded_model.json"
+
