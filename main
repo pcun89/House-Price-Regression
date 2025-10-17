@@ -13,3 +13,14 @@ static inline void normalize_features(float *x) {
         x[i] = (x[i] - means[i]) / (scales[i] == 0.0f ? 1.0f : scales[i]);
     }
 }
+// Predict using dot product
+float predict(const float *x_input) {
+    float x[N_FEATURES];
+    for (size_t i = 0; i < N_FEATURES; ++i) x[i] = x_input[i]; // copy if needed
+    normalize_features(x);
+    float acc = intercept;
+    for (size_t i = 0; i < N_FEATURES; ++i) {
+        acc += coef[i] * x[i];
+    }
+    return acc; // predicted median house value
+}
