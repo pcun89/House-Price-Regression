@@ -1,4 +1,3 @@
-# House-Price-Regression
 # House Price Regression + Embedded Inference (Linear / Ridge Regression)
 
 **Project:** Predict median house value (California Housing) with a linear/regression model and show how to embed the trained model into C for microcontrollers.
